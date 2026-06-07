@@ -25,7 +25,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: palandeta/isa-abr26-cicd-docker:flaskapp
+          tags: dariouniversidad/isa-abril-cicd-docker
  
       - name: Deployment
         uses: appleboy/ssh-action@v0.1.8
