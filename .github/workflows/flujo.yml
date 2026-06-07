@@ -25,7 +25,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: dariouniversidad/isa-abril-cicd-docker
+          tags: dariouniversidad/isa-abril-cicd-docker:flaskapp
  
       - name: Deployment
         uses: appleboy/ssh-action@v0.1.8
@@ -35,7 +35,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            docker image pull palandeta/isa-abr26-cicd-docker:flaskapp
-            docker container stop contflaskpablo
-            docker container rm contflaskpablo
-            docker container run -d --name contflaskpablo -p 80:5000 palandeta/isa-abr26-cicd-docker:flaskapp
+            docker image pull docker push dariouniversidad/isa-abril-cicd-docker:flaskapp
+            docker container stop contflaskda
+            docker container rm contflaskda
+            docker container run -d --name contflaskda -p 80:5000 dariouniversidad/isa-abril-cicd-docker:flaskapp
