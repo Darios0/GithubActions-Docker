@@ -1,219 +1,150 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Web Moderna</title>
-    <!-- Importamos una tipografía moderna desde Google Fonts -->
-    <link href="https://googleapis.com" rel="stylesheet">
-    
+    <title>Page EV-ISA</title>
     <style>
-        /* --- VARIABLES Y RESETEO --- */
+        /* Variables de diseño (estilo moderno) */
         :root {
-            --primary: #6366f1; /* Morado moderno */
-            --secondary: #a855f7; /* Violeta brillante */
-            --dark: #0f172a; /* Fondo oscuro */
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --text: #f8fafc;
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --card-bg: rgba(255, 255, 255, 0.07);
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
         body {
-            background-color: var(--dark);
-            color: var(--text);
+            background: var(--bg-gradient);
+            color: var(--text-color);
             min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* --- NAVEGACIÓN --- */
-        nav {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 2rem 5%;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: var(--text);
-            text-decoration: none;
-            font-size: 0.95rem;
-            opacity: 0.8;
-            transition: opacity 0.3s;
-        }
-
-        .nav-links a:hover {
-            opacity: 1;
-        }
-
-        /* --- SECCIÓN HERO (PRINCIPAL) --- */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            text-align: center;
-            padding: 5rem 1rem;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Contenedor principal */
+        .contenedor {
             max-width: 800px;
-            margin: 0 auto;
-            position: relative;
+            width: 100%;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
-        /* Efecto de luz difuminada de fondo */
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 20%;
-            width: 300px;
-            height: 300px;
-            background: var(--primary);
-            filter: blur(150px);
-            opacity: 0.2;
-            z-index: -1;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero h1 span {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        /* Tipografía */
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #818cf8, #c084fc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            font-weight: 800;
         }
 
-        .hero p {
-            font-size: 1.1rem;
-            opacity: 0.7;
+        p {
+            color: var(--text-muted);
+            font-size: 1.125rem;
+            line-height: 1.6;
             margin-bottom: 2.5rem;
             max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* Botón llamativo con efecto de brillo */
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 2.5rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
-        }
-
-        /* --- SECCIÓN TARJETAS (CARDS) --- */
-        .services {
-            padding: 5rem 5%;
+        /* Grid de tarjetas (Flexbox para centrar o Grid para organizar) */
+        .grid-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
         }
 
         .card {
-            background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 2.5rem 2rem;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 1.5rem;
             border-radius: 16px;
-            backdrop-filter: blur(10px); /* Efecto vidrio esmerilado */
-            transition: transform 0.3s, border-color 0.3s;
+            transition: transform 0.3s ease, background 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-        }
-
-        .card-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.08);
         }
 
         .card h3 {
             font-size: 1.25rem;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
         }
 
-        .card p {
-            font-size: 0.95rem;
-            opacity: 0.6;
-            line-height: 1.6;
+        /* Botón de llamada a la acción */
+        .btn-cta {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
 
-        /* --- RESPONSIVE --- */
+        .btn-cta:hover {
+            background: var(--primary-hover);
+            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Diseño responsive */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .nav-links { display: none; } /* Simplificación para celular */
+            h1 {
+                font-size: 2rem;
+            }
+            .contenedor {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- MENÚ DE NAVEGACIÓN -->
-    <nav>
-        <div class="logo">MiMarca.</div>
-        <ul class="nav-links">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Servicios</a></li>
-            <li><a href="#">Contacto</a></li>
-        </ul>
-    </nav>
+    <div class="contenedor">
+        <h1>Page EV-ISA</h1>
+        <p>Descripción de la página EV-ISA.</p>
+        
+        <div class="grid-cards">
+            <div class="card">
+                <h3>Rápido</h3>
+                <p>Carga optimizada y adaptada a cualquier tipo de pantalla.</p>
+            </div>
+            <div class="card">
+                <h3>Intuitivo</h3>
+                <p>Navegación fluida diseñada para mejorar la experiencia de usuario.</p>
+            </div>
+            <div class="card">
+                <h3>Estilizado</h3>
+                <p>Estética visual vanguardista con efectos de cristal y gradientes.</p>
+            </div>
+        </div>
 
-    <!-- SECCIÓN PRINCIPAL -->
-    <section class="hero">
-        <h1>Construye el futuro con un diseño <span>impactante</span></h1>
-        <p>Creamos experiencias digitales limpias, rápidas y totalmente adaptadas a tus necesidades. Menos código, más impacto.</p>
-        <a href="#" class="btn">Empezar ahora</a>
-    </section>
-
-    <!-- SECCIÓN DE SERVICIOS -->
-    <section class="services">
-        <div class="card">
-            <div class="card-icon">⚡</div>
-            <h3>Máxima Velocidad</h3>
-            <p>Optimizado para cargar en milisegundos y retener a tus clientes potenciales.</p>
-        </div>
-        <div class="card">
-            <div class="card-icon">🎨</div>
-            <h3>DISEÑO</h3>
-            <p>Estilos.</p>
-        </div>
-        <div class="card">
-            <div class="card-icon">📱</div>
-            <h3>RESPONSIVE</h3>
-            <p>SParrafo Varios parrafo 12.</p>
-        </div>
-    </section>
+        <a href="#" class="btn-cta">Comenzar Ahora</a>
+    </div>
 
 </body>
 </html>
